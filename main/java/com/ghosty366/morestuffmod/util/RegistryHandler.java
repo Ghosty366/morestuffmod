@@ -9,6 +9,7 @@ import com.ghosty366.morestuffmod.items.ItemBase;
 import com.ghosty366.morestuffmod.tools.ModItemTier;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.SwordItem;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -31,7 +32,8 @@ public class RegistryHandler {
     // Tools
     public static final RegistryObject<SwordItem> STEEL_SWORD = ITEMS.register("steel_sword", () ->
             new SwordItem(ModItemTier.STEEL, 0, -2.4F, new Item.Properties().group(MoreStuff.TAB)));
-
+    public static final RegistryObject<PickaxeItem> STEEL_PICKAXE = ITEMS.register("steel_pickaxe", () ->
+            new PickaxeItem(ModItemTier.STEEL, -4, -2.8F, new Item.Properties().group(MoreStuff.TAB)));
     // Blocks
     public static final RegistryObject<Block> STEEL_BLOCK = BLOCKS.register("steel_block", SteelBlock::new);
     public static final RegistryObject<Block> STEEL_ORE = BLOCKS.register("steel_ore", SteelOre::new);
