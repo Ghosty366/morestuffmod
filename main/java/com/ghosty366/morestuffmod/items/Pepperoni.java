@@ -4,9 +4,9 @@ import com.ghosty366.morestuffmod.MoreStuff;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 
-public class Cheeze extends Item {
-    public Cheeze() {
-        super(new Item.Properties()
+public class Pepperoni extends Item {
+    public Pepperoni() {
+        super(new Properties()
                 .group(MoreStuff.TAB)
                 .food(new Food.Builder()
                         .hunger(3)

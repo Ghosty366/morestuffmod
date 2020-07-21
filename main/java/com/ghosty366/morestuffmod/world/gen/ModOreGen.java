@@ -30,7 +30,7 @@ public class ModOreGen {
 
             //World Generation
             } else {
-                genOre(biome, 14, 15, 5, 30, OreFeatureConfig.FillerBlockType.NATURAL_STONE, RegistryHandler.STEEL_ORE.get().getDefaultState(), 5);
+                genOre(biome, 1, 15, 5, 30, OreFeatureConfig.FillerBlockType.NATURAL_STONE, RegistryHandler.STEEL_ORE.get().getDefaultState(), 5);
             }
         }
     }
