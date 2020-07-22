@@ -10,10 +10,7 @@ import com.ghosty366.morestuffmod.items.Pepperoni;
 import com.ghosty366.morestuffmod.items.Pizza;
 import com.ghosty366.morestuffmod.tools.ModItemTier;
 import net.minecraft.block.Block;
-import net.minecraft.item.AxeItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.PickaxeItem;
-import net.minecraft.item.SwordItem;
+import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -34,10 +31,13 @@ public class RegistryHandler {
     public static final RegistryObject<Item> STEEL = ITEMS.register("steel", ItemBase::new);
     public static final RegistryObject<Pizza> PIZZA = ITEMS.register("pizza", Pizza::new);
     public static final RegistryObject<Pepperoni> PEPPERONI = ITEMS.register("pepperoni", Pepperoni::new);
+
     // Tools
     public static final RegistryObject<SwordItem> STEEL_SWORD = ITEMS.register("steel_sword", () -> new SwordItem(ModItemTier.STEEL, 0, -2.4F, new Item.Properties().group(MoreStuff.TAB)));
     public static final RegistryObject<PickaxeItem> STEEL_PICKAXE = ITEMS.register("steel_pickaxe", () -> new PickaxeItem(ModItemTier.STEEL, -4, -2.8F, new Item.Properties().group(MoreStuff.TAB)));
     public static final RegistryObject<AxeItem> STEEL_AXE = ITEMS.register("steel_axe", () -> new AxeItem(ModItemTier.STEEL, 1, -3.0F, new Item.Properties().group(MoreStuff.TAB)));
+    public static final RegistryObject<ShovelItem> STEEL_SHOVEL = ITEMS.register("steel_shovel", () -> new ShovelItem(ModItemTier.STEEL, -3.5F, -2.8F, new Item.Properties().group(MoreStuff.TAB)));
+    public static final RegistryObject<HoeItem> STEEL_HOE = ITEMS.register("steel_hoe", () -> new HoeItem(ModItemTier.STEEL, 2, new Item.Properties().group(MoreStuff.TAB)));
 
     // Blocks
     public static final RegistryObject<Block> STEEL_BLOCK = BLOCKS.register("steel_block", SteelBlock::new);
