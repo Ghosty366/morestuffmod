@@ -1,6 +1,7 @@
 package com.ghosty366.morestuffmod.util;
 
 import com.ghosty366.morestuffmod.MoreStuff;
+import com.ghosty366.morestuffmod.armor.ModArmorMaterial;
 import com.ghosty366.morestuffmod.blocks.BlockItemBase;
 import com.ghosty366.morestuffmod.blocks.SteelBlock;
 import com.ghosty366.morestuffmod.blocks.SteelOre;
@@ -10,6 +11,7 @@ import com.ghosty366.morestuffmod.items.Pepperoni;
 import com.ghosty366.morestuffmod.items.Pizza;
 import com.ghosty366.morestuffmod.tools.ModItemTier;
 import net.minecraft.block.Block;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -38,6 +40,12 @@ public class RegistryHandler {
     public static final RegistryObject<AxeItem> STEEL_AXE = ITEMS.register("steel_axe", () -> new AxeItem(ModItemTier.STEEL, 1, -3.0F, new Item.Properties().group(MoreStuff.TAB)));
     public static final RegistryObject<ShovelItem> STEEL_SHOVEL = ITEMS.register("steel_shovel", () -> new ShovelItem(ModItemTier.STEEL, -3.5F, -2.8F, new Item.Properties().group(MoreStuff.TAB)));
     public static final RegistryObject<HoeItem> STEEL_HOE = ITEMS.register("steel_hoe", () -> new HoeItem(ModItemTier.STEEL, 2, new Item.Properties().group(MoreStuff.TAB)));
+
+    // Armor
+    public static final RegistryObject<ArmorItem> STEEL_HELMET = ITEMS.register("steel_helmet", () -> new ArmorItem(ModArmorMaterial.STEEL, EquipmentSlotType.HEAD, new Item.Properties().group(MoreStuff.TAB)));
+    public static final RegistryObject<ArmorItem> STEEL_CHESTPLATE = ITEMS.register("steel_chestplate", () -> new ArmorItem(ModArmorMaterial.STEEL, EquipmentSlotType.CHEST, new Item.Properties().group(MoreStuff.TAB)));
+    public static final RegistryObject<ArmorItem> STEEL_LEGGINGS = ITEMS.register("steel_leggings", () -> new ArmorItem(ModArmorMaterial.STEEL, EquipmentSlotType.LEGS, new Item.Properties().group(MoreStuff.TAB)));
+    public static final RegistryObject<ArmorItem> STEEL_BOOTS = ITEMS.register("steel_boots", () -> new ArmorItem(ModArmorMaterial.STEEL, EquipmentSlotType.FEET, new Item.Properties().group(MoreStuff.TAB)));
 
     // Blocks
     public static final RegistryObject<Block> STEEL_BLOCK = BLOCKS.register("steel_block", SteelBlock::new);
