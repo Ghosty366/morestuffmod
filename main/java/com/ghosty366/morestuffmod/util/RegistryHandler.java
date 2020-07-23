@@ -40,6 +40,7 @@ public class RegistryHandler {
     public static final RegistryObject<AxeItem> STEEL_AXE = ITEMS.register("steel_axe", () -> new AxeItem(ModItemTier.STEEL, 1, -3.0F, new Item.Properties().group(MoreStuff.TAB)));
     public static final RegistryObject<ShovelItem> STEEL_SHOVEL = ITEMS.register("steel_shovel", () -> new ShovelItem(ModItemTier.STEEL, -3.5F, -2.8F, new Item.Properties().group(MoreStuff.TAB)));
     public static final RegistryObject<HoeItem> STEEL_HOE = ITEMS.register("steel_hoe", () -> new HoeItem(ModItemTier.STEEL, 2, new Item.Properties().group(MoreStuff.TAB)));
+    public static final RegistryObject<SwordItem> EMERALD_SWORD = ITEMS.register("emerald_sword", () -> new SwordItem(ModItemTier.STEEL, -1, -2.4F, new Item.Properties().group(MoreStuff.TAB)));
 
     // Armor
     public static final RegistryObject<ArmorItem> STEEL_HELMET = ITEMS.register("steel_helmet", () -> new ArmorItem(ModArmorMaterial.STEEL, EquipmentSlotType.HEAD, new Item.Properties().group(MoreStuff.TAB)));
