@@ -11,6 +11,7 @@ import com.ghosty366.morestuffmod.items.Pepperoni;
 import com.ghosty366.morestuffmod.items.Pizza;
 import com.ghosty366.morestuffmod.tools.ModItemTier;
 import net.minecraft.block.Block;
+import net.minecraft.block.CropsBlock;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
