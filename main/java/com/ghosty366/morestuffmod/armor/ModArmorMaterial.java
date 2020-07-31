@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 
 public enum ModArmorMaterial implements IArmorMaterial {
 
-    STEEL(MoreStuff.MOD_ID + ":steel", 35, new int[] { 3, 6, 7, 3 }, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 3.0F, () -> { return Ingredient.fromItems(RegistryHandler.STEEL.get()); });
+    STEEL(MoreStuff.MOD_ID + ":steel", 35, new int[] { 3, 6, 7, 3 }, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 3.0F, () -> { return Ingredient.fromItems(RegistryHandler.STEEL.get()); }, 0);
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[] { 11, 16, 15, 13 };
     private final String name;
@@ -24,8 +24,8 @@ public enum ModArmorMaterial implements IArmorMaterial {
     private final SoundEvent soundEvent;
     private float toughness;
     private final Supplier<Ingredient> repairMaterial;
-
-    ModArmorMaterial(String name, int maxDamageFactor, int[] damageReductionAmountArray, int enchantability, SoundEvent soundEvent, float toughness, Supplier<Ingredient> repairMaterial) {
+    private final float knockbackResistance;
+    ModArmorMaterial(String name, int maxDamageFactor, int[] damageReductionAmountArray, int enchantability, SoundEvent soundEvent, float toughness, Supplier<Ingredient> repairMaterial, float knockbackResistance) {
         this.name = name;
         this.maxDamageFactor = maxDamageFactor;
         this.damageReductionAmountArray = damageReductionAmountArray;
@@ -33,6 +33,7 @@ public enum ModArmorMaterial implements IArmorMaterial {
         this.soundEvent = soundEvent;
         this.toughness = toughness;
         this.repairMaterial = repairMaterial;
+        this.knockbackResistance = knockbackResistance;
     }
 
     @Override
@@ -69,5 +70,10 @@ public enum ModArmorMaterial implements IArmorMaterial {
     @Override
     public float getToughness() {
         return this.toughness;
+    }
+
+    @Override
+    public float getKnockbackResistance() {
+        return this.knockbackResistance;
     }
 }

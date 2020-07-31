@@ -12,6 +12,7 @@ public class SteelOre extends OreBlock {
                 .hardnessAndResistance(4.0f, 5.0f)
                 .sound(SoundType.STONE)
                 .harvestLevel(2)
-                .harvestTool(ToolType.PICKAXE));
+                .harvestTool(ToolType.PICKAXE)
+                .setRequiresTool());
     }
 }

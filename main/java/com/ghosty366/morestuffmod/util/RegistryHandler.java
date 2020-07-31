@@ -11,7 +11,6 @@ import com.ghosty366.morestuffmod.items.Pepperoni;
 import com.ghosty366.morestuffmod.items.Pizza;
 import com.ghosty366.morestuffmod.tools.ModItemTier;
 import net.minecraft.block.Block;
-import net.minecraft.block.CropsBlock;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
@@ -21,8 +20,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class RegistryHandler {
 
-    public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, MoreStuff.MOD_ID);
-    public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, MoreStuff.MOD_ID);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MoreStuff.MOD_ID);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MoreStuff.MOD_ID);
+
     public static void init() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
@@ -40,7 +40,7 @@ public class RegistryHandler {
     public static final RegistryObject<PickaxeItem> STEEL_PICKAXE = ITEMS.register("steel_pickaxe", () -> new PickaxeItem(ModItemTier.STEEL, -4, -2.8F, new Item.Properties().group(MoreStuff.TAB)));
     public static final RegistryObject<AxeItem> STEEL_AXE = ITEMS.register("steel_axe", () -> new AxeItem(ModItemTier.STEEL, 1, -3.0F, new Item.Properties().group(MoreStuff.TAB)));
     public static final RegistryObject<ShovelItem> STEEL_SHOVEL = ITEMS.register("steel_shovel", () -> new ShovelItem(ModItemTier.STEEL, -3.5F, -2.8F, new Item.Properties().group(MoreStuff.TAB)));
-    public static final RegistryObject<HoeItem> STEEL_HOE = ITEMS.register("steel_hoe", () -> new HoeItem(ModItemTier.STEEL, 2, new Item.Properties().group(MoreStuff.TAB)));
+    public static final RegistryObject<HoeItem> STEEL_HOE = ITEMS.register("steel_hoe", () -> new HoeItem(ModItemTier.STEEL, -3, 2, new Item.Properties().group(MoreStuff.TAB)));
     public static final RegistryObject<SwordItem> EMERALD_SWORD = ITEMS.register("emerald_sword", () -> new SwordItem(ModItemTier.STEEL, -1, -2.4F, new Item.Properties().group(MoreStuff.TAB)));
 
     // Armor
