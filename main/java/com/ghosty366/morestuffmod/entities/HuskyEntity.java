@@ -29,7 +29,7 @@ public class HuskyEntity extends AnimalEntity {
 
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.func_233666_p_().createMutableAttribute(Attributes.MAX_HEALTH, 20.0D)
-                                         .createMutableAttribute(Attributes.MOVEMENT_SPEED, 1);
+                                         .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.2F);
     }
 
     @Override
