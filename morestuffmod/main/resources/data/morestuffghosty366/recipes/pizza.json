@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "ppp",
+    "ccc",
+    "bbb"
+  ],
+  "key":
+  {
+    "p":
+    {
+      "item": "morestuffghosty366:pepperoni"
+    },
+    "c":
+    {
+      "item": "morestuffghosty366:cheeze"
+    },
+    "b":
+    {
+      "item": "minecraft:bread"
+    }
+  },
+  "result":
+  {
+    "item": "morestuffghosty366:pizza",
+    "count": 1
+  }
+}

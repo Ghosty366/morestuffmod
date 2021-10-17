@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "morestuffghosty366:steel"
+  },
+  "result": "morestuffghosty366:steel_plating",
+  "experience": 0.0,
+  "cookingtime": 600
+}

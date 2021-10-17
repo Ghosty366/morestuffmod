@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "   ",
+    "   ",
+    "xxx"
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "morestuffghosty366:steel"
+    }
+  },
+  "result":
+  {
+    "item": "morestuffghosty366:steel_plating",
+    "count": 1
+  }
+}
