@@ -7,10 +7,10 @@ import net.minecraft.item.Item;
 public class Pizza extends Item {
     public Pizza() {
         super(new Properties()
-                .group(MoreStuff.TAB)
+                .tab(MoreStuff.TAB)
                 .food(new Food.Builder()
-                        .hunger(6)
-                        .saturation(1.3F)
+                        .nutrition(6)
+                        .saturationMod(1.3F)
                         .build())
         );
     }

@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 public enum ModItemTier implements IItemTier {
 
     STEEL(3, 1600, 9.0F, 8.0F, 12, () -> {
-       return Ingredient.fromItems(RegistryHandler.STEEL_SWORD.get());
+       return Ingredient.of(RegistryHandler.STEEL_SWORD.get());
     });
 
     private final int harvestLevel;
@@ -28,33 +28,41 @@ public enum ModItemTier implements IItemTier {
         this.repairMaterial = repairMaterial;
     }
 
+    
+
     @Override
-    public int getMaxUses() {
+    public int getUses() {
+        // TODO Auto-generated method stub
         return maxUses;
     }
 
     @Override
-    public float getEfficiency() {
+    public float getSpeed() {
+        // TODO Auto-generated method stub
         return efficiency;
     }
 
     @Override
-    public float getAttackDamage() {
+    public float getAttackDamageBonus() {
+        // TODO Auto-generated method stub
         return attackdamage;
     }
 
     @Override
-    public int getHarvestLevel() {
+    public int getLevel() {
+        // TODO Auto-generated method stub
         return harvestLevel;
     }
 
     @Override
-    public int getEnchantability() {
+    public int getEnchantmentValue() {
+        // TODO Auto-generated method stub
         return enchantability;
     }
 
     @Override
-    public Ingredient getRepairMaterial() {
+    public Ingredient getRepairIngredient() {
+        // TODO Auto-generated method stub
         return repairMaterial.get();
     }
 }

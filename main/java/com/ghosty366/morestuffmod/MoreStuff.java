@@ -7,7 +7,6 @@ import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -18,7 +17,7 @@ import org.apache.logging.log4j.Logger;
 
 @Mod("morestuffghosty366")
 public class MoreStuff {
-    private static final Logger LOGGER = LogManager.getLogger();
+    //private static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "morestuffghosty366";
 
     public MoreStuff() {
@@ -33,15 +32,17 @@ public class MoreStuff {
 
     private void setup(final FMLCommonSetupEvent event) {
         DeferredWorkQueue.runLater(() -> {
-            GlobalEntityTypeAttributes.put(ModEntityTypes.HUSKY.get(), HuskyEntity.setCustomAttributes().create());
+            GlobalEntityTypeAttributes.put(ModEntityTypes.HUSKY.get(), HuskyEntity.setCustomAttributes().build());
         });
     }
     private void doClientStuff(final FMLClientSetupEvent event) { }
 
     public static final ItemGroup TAB = new ItemGroup("morestuffTab") {
         @Override
-        public ItemStack createIcon() {
+        public ItemStack makeIcon() {
             return new ItemStack(RegistryHandler.CHEEZE.get());
         }
     };
-}
+
+    };
+

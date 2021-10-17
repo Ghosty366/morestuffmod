@@ -7,10 +7,10 @@ import net.minecraft.item.Item;
 public class Cheeze extends Item {
     public Cheeze() {
         super(new Item.Properties()
-                .group(MoreStuff.TAB)
+                .tab(MoreStuff.TAB)
                 .food(new Food.Builder()
-                        .hunger(3)
-                        .saturation(0.2F)
+                        .nutrition(3)
+                        .saturationMod(0.2F)
                         .build())
         );
     }

@@ -8,11 +8,10 @@ import net.minecraftforge.common.ToolType;
 
 public class SteelOre extends OreBlock {
     public SteelOre() {
-        super(Block.Properties.create(Material.IRON)
-                .hardnessAndResistance(4.0f, 5.0f)
+        super(Block.Properties.of(Material.METAL)
+                .strength(4.0f, 5.0f)
                 .sound(SoundType.STONE)
                 .harvestLevel(2)
-                .harvestTool(ToolType.PICKAXE)
-                .setRequiresTool());
+                .harvestTool(ToolType.PICKAXE));
     }
 }

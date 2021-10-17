@@ -15,8 +15,10 @@ public class HuskyRenderer extends MobRenderer<HuskyEntity, HuskyModel<HuskyEnti
         super(renderManagerIn, new HuskyModel<>(), 0.5F);
     }
 
+
     @Override
-    public ResourceLocation getEntityTexture(HuskyEntity entity) {
+    public ResourceLocation getTextureLocation(HuskyEntity p_110775_1_) {
+        // TODO Auto-generated method stub
         return TEXTURE;
     }
 }

@@ -1,44 +1,54 @@
 package com.ghosty366.morestuffmod.world.gen;
-
 import com.ghosty366.morestuffmod.MoreStuff;
-import com.ghosty366.morestuffmod.util.RegistryHandler;
-import net.minecraft.block.BlockState;
-import net.minecraft.world.biome.Biome;
+import com.ghosty366.morestuffmod.blocks.SteelOre;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.placement.ConfiguredPlacement;
-import net.minecraft.world.gen.placement.CountRangeConfig;
-import net.minecraft.world.gen.placement.Placement;
+import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
+import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
-import net.minecraftforge.registries.ForgeRegistries;
+import java.util.ArrayList;
 
-@Mod.EventBusSubscriber(modid = MoreStuff.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+/**
+ * Ore generation
+ * @author TechOFreak
+ *
+ */
+
+@Mod.EventBusSubscriber
 public class ModOreGen {
 
-    @SubscribeEvent
-    public static void generateOres(FMLLoadCompleteEvent event) {
-        for (Biome biome : ForgeRegistries.BIOMES) {
+    private static final ArrayList<ConfiguredFeature<?, ?>> overworldOres = new ArrayList<ConfiguredFeature<?, ?>>();
+    public static void registerOres(){
+        //BASE_STONE_OVERWORLD is for generating in stone, granite, diorite, and andesite
+        //NETHERRACK is for generating in netherrack
+        //BASE_STONE_NETHER is for generating in netherrack, basalt and blackstone
 
-            //Nether Generation
-            if (biome.getCategory() == Biome.Category.NETHER) {
+        //Overworld Ore Register
+        overworldOres.add(register("steel_ore", Feature.ORE.configured(new OreFeatureConfig(
+                OreFeatureConfig.FillerBlockType.NATURAL_STONE, new SteelOre().defaultBlockState(), 4)) //Vein Size
+                .range(45).squared() //Spawn height start
+                .count(15)
+                .chance(60))); //Chu
 
-            //End Generation
-            } else if (biome.getCategory() == Biome.Category.THEEND) {
+    }
 
-            //World Generation
-            } else {
-                genOre(biome, 1, 15, 5, 30, OreFeatureConfig.FillerBlockType.NATURAL_STONE, RegistryHandler.STEEL_ORE.get().getDefaultState(), 5);
-            }
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
+    public static void gen(BiomeLoadingEvent event) {
+        BiomeGenerationSettingsBuilder generation = event.getGeneration();
+        for(ConfiguredFeature<?, ?> ore : overworldOres){
+            if (ore != null) generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
         }
     }
 
-     private static void genOre(Biome biome, int count, int bottomOffset, int topOffset, int max, OreFeatureConfig.FillerBlockType filler, BlockState defaultBlockstate, int size) {
-         CountRangeConfig range = new CountRangeConfig(count, bottomOffset, topOffset, max);
-         OreFeatureConfig feature = new OreFeatureConfig(filler, defaultBlockstate, size);
-         ConfiguredPlacement config = Placement.COUNT_RANGE.configure(range);
-         biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(feature).withPlacement(config));
-     }
+    private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> configuredFeature) {
+        return Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, MoreStuff.MOD_ID + ":" + name, configuredFeature);
+    }
+
 }

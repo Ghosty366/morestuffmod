@@ -15,7 +15,7 @@ public class ModEntityTypes {
 
     // Entity Types
     public static final RegistryObject<EntityType<HuskyEntity>> HUSKY = ENTITY_TYPES.register("husky",
-            () -> EntityType.Builder.create(HuskyEntity::new, EntityClassification.CREATURE)
-                    .size(1.0F, 1.F)
+            () -> EntityType.Builder.of(HuskyEntity::new, EntityClassification.CREATURE)
+                    .sized(1.0F, 1.F)
                     .build(new ResourceLocation(MoreStuff.MOD_ID, "husky").toString()));
 }

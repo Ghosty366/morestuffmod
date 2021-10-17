@@ -17,19 +17,22 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
+
+import javax.annotation.Nullable;
 
 
 public class HuskyEntity extends AnimalEntity {
 
-    public static final Ingredient TEMPTATION_ITEMS = Ingredient.fromItems(Items.COOKED_BEEF);
+    public static final Ingredient TEMPTATION_ITEMS = Ingredient.of(Items.COOKED_BEEF);
 
     public HuskyEntity(EntityType<? extends AnimalEntity> type, World worldIn) {
         super(type, worldIn);
     }
 
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
-        return MobEntity.func_233666_p_().createMutableAttribute(Attributes.MAX_HEALTH, 20.0D)
-                                         .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.2F);
+        return MobEntity.createMobAttributes().add(Attributes.MAX_HEALTH, 20.0D)
+                                         .add(Attributes.MOVEMENT_SPEED, 0.2F);
     }
 
     @Override
@@ -45,33 +48,37 @@ public class HuskyEntity extends AnimalEntity {
         this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
     }
 
-    @Override
     protected int getExperiencePoints(PlayerEntity player) {
-        return 1 + this.world.rand.nextInt(4);
+        return 1 + this.level.random.nextInt(4);
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.ENTITY_WOLF_AMBIENT;
+        return SoundEvents.WOLF_AMBIENT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_WOLF_DEATH;
+        return SoundEvents.WOLF_DEATH;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundEvents.ENTITY_WOLF_HURT;
+        return SoundEvents.WOLF_HURT;
     }
 
     @Override
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
-        this.playSound(SoundEvents.ENTITY_WOLF_STEP, 0.15F, 1.0F);
+        this.playSound(SoundEvents.WOLF_STEP, 0.15F, 1.0F);
     }
 
-    @Override
     public AgeableEntity createChild(AgeableEntity ageable) {
-        return ModEntityTypes.HUSKY.get().create(this.world);
+        return ModEntityTypes.HUSKY.get().create(this.level);
+    }
+
+    @Nullable
+    @Override
+    public AgeableEntity getBreedOffspring(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
+        return null;
     }
 }
